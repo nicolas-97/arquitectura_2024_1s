@@ -16,12 +16,8 @@ class Test(unittest.TestCase):
 
     def test_quick_sort_descendent(self):
         input_data = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-        sorted_data = sorted(input_data)
-        print("Sorted Data:", sorted_data)
-        print("Original Data:", input_data)
-        self.assertEqual(sorted_data, input_data[::-1])
-    
-
+        self.assertEqual(sorted(input_data), input_data[::-1])
 
 if __name__ == '__main__':
     unittest.main()
+
