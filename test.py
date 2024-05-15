@@ -1,33 +1,20 @@
-class QuickSort:
-    @staticmethod
-    def particionar(arr, bajo, alto):
-        pivote = arr[alto]
-        i = bajo - 1
-        j = bajo
-        while j < alto:
-            if arr[j] < pivote:
-                i += 1
-                arr[i], arr[j] = arr[j], arr[i]
-            j += 1
-        arr[i + 1], arr[alto] = arr[alto], arr[i + 1]
-        return i + 1
+import unittest
 
-    @staticmethod
-    def ordenar_rapido(arr, bajo, alto):
-        if bajo < alto:
-            pi = QuickSort.particionar(arr, bajo, alto)
-            QuickSort.ordenar_rapido(arr, bajo, pi - 1)
-            QuickSort.ordenar_rapido(arr, pi + 1, alto)
+from quick_sort import QuickSort
 
-    @staticmethod
-    def quickSort(input) -> list:
-        arr = input.copy()
-        QuickSort.ordenar_rapido(arr, 0, len(arr) - 1)
-        return arr
+class Test(unittest.TestCase):
+    def test_test_quick_sort_empty(self):
+        input_data = []
+        self.assertEqual(QuickSort.quickSort(input_data), [])
 
+    def test_test_quick_sort_one_element(self):
+        input_data = [1]
+        self.assertEqual(QuickSort.quickSort(input_data), [1])
+    
+    def test_quick_sort_ascendent(self):
+        input_data = [1,2,3,4,5,6,7,8,9,10]
+        self.assertEqual(QuickSort.quickSort(input_data), input_data)
 
-# Ejemplo de uso
-arr = [5, 3, 8, 6, 2, 7, 1, 4]
-print("Lista original:", arr)
-sorted_arr = QuickSort.quickSort(arr)
-print("Lista ordenada:", sorted_arr)
+    def test_quick_sort_ascendent(self):
+        input_data = [10,9,8,7,6,5,4,3,2,1]
+        self.assertEqual(QuickSort.quickSort(input_data), sorted(input_data))
