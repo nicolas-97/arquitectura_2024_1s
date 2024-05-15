@@ -1,4 +1,4 @@
-class QuickSortModified:
+class QuickSort():
     @staticmethod
     def partition(arr, start, end):
         pivot = arr[end]
