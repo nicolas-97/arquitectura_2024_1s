@@ -11,7 +11,7 @@ class QuickSort():
         return left_pointer + 1
 
     @staticmethod
-    def quick_sort(arr):
+    def quickSort(arr):
         def _quick_sort(arr, start, end):
             if start < end:
                 pivot_index = QuickSortModified.partition(arr, start, end)
